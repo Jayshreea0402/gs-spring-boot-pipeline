@@ -18,7 +18,7 @@ variables:
     mavenVersionOption: 'Default'
     mavenAuthenticateFeed: false
     effectivePomSkip: false
-    #sonarQubeRunAnalysis: false9207-ac89-4752-968d-87974e8e2e11'
+    sonarQubeRunAnalysis: false
   
   # Web app name
   webAppName: 'java-spring-boot'
