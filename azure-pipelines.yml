@@ -10,11 +10,16 @@ variables:
 
   # Azure Resource Manager connection created during pipeline creation
   azureSubscription: 'ef139207-ac89-4752-968d-87974e8e2e11'
-  'ef1- task': Maven@4
+- task: Maven@4
   inputs:
-    mavenPomFile: 'app/pom.xml'
-    publishJUnitResults: false
+    mavenPomFile: '/app/pom.xml'
+    publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: false
     javaHomeOption: 'JDKVersion'
     mavenVersionOption: 'Default'
     mavenAuthenticateFeed: false
