@@ -12,7 +12,7 @@ variables:
   azureSubscription: 'ef1- task: Maven@4
   inputs:
     mavenPomFile: '/app/pom.xml'
-    publishJUnitResults: true
+    publishJUnitResults: false
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
     mavenVersionOption: 'Default'
