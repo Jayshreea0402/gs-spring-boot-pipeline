@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: jayshreeagsspringbootpipeline 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jayshreeagsspringbootpipeline
+  template:
+    metadata:
+      labels:
+        app: jayshreeagsspringbootpipeline 
+    spec:
+      containers:
+        - name: jayshreeagsspringbootpipeline 
+          image: jayshree.azurecr.io/jayshreeagsspringbootpipeline
+          ports:
+          - containerPort: 80
