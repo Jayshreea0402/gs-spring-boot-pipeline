@@ -7,25 +7,8 @@ trigger:
 - master
 
 variables:
-
   # Azure Resource Manager connection created during pipeline creation
   azureSubscription: 'ef139207-ac89-4752-968d-87974e8e2e11'
-  - task: Maven@4
-    inputs:
-      mavenPomFile: '/app/pom.xml'
-      publishJUnitResults: true
-      testResultsFiles: '**/surefire-reports/TEST-*.xml'
-      javaHomeOption: 'JDKVersion'
-      mavenVersionOption: 'Default'
-      mavenAuthenticateFeed: false
-      effectivePomSkip: false
-      sonarQubeRunAnalysis: false
-  
-  # Web app name
-  webAppName: 'java-spring-boot'
-
-  # Agent VM image name
-  vmImageName: 'ubuntu-latest'
 
 stages:
 - stage: Build
@@ -41,6 +24,19 @@ stages:
       displayName: 'Maven Package'
       inputs:
         mavenPomFile: 'app/pom.xml'
+        publishJUnitResults: true
+        testResultsFiles: '**/surefire-reports/TEST-*.xml'
+        javaHomeOption: 'JDKVersion'
+        mavenVersionOption: 'Default'
+        mavenAuthenticateFeed: false
+        effectivePomSkip: false
+        sonarQubeRunAnalysis: false
+  
+    # Web app name
+    webAppName: 'java-spring-boot'
+
+    # Agent VM image name
+    vmImageName: 'ubuntu-latest'
 
     - task: CopyFiles@2
       displayName: 'Copy Files to artifact staging directory'
